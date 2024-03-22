@@ -1,34 +1,17 @@
-//document.getElementById("count-el").innerText = 5
+let min = 2 
 
-let peopleCount = 0
+let max = 11
 
-let countEl = document.getElementById("count-el")
+let firstCard = Math.floor(Math.random() * (max - min + 1)) + min
 
-let saveEl = document.getElementById("save-el") 
+let secondCard = Math.floor(Math.random() * (max - min + 1)) + min
 
-let welcomeEl = document.getElementById("welcome-el")
+let sum = firstCard + secondCard
 
-let userName = "Jo Durafourd"
-
-welcomeEl.innerText = "Welcome to the People Counter, " + userName + "!"
-
-
-
-function increment() {
-    peopleCount += 1
-    countEl.innerText = peopleCount
+if (sum < 21) {
+    console.log("Do you want to draw a new card?")
+} else if (sum === 21) {
+    console.log("Blackjack!")
+} else {
+    console.log("You're out of luck, you lose!")
 }
-
-function resetToNothing() {
-    countEl.innerText = 0
-    peopleCount = 0
-}
-
-
-function saveCurrentNumber() {
-    let savedNumber1 = " " + peopleCount + " - "
-    saveEl.innerText += savedNumber1
-    peopleCount = 0 
-    countEl.innerText = peopleCount
-}
-
