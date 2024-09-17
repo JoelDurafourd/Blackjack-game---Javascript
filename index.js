@@ -13,14 +13,14 @@ let isAlive = true
 
 let message = ""
 
+let firstCard = Math.floor(Math.random() * (max - min + 1)) + min
+let secondCard = Math.floor(Math.random() * (max - min + 1)) + min
 
-let sum = 0
+let sum = (firstCard + secondCard)
 
+cards = [firstCard, secondCard]
 
-function startGame() {
-      let firstCard = Math.floor(Math.random() * (max - min + 1)) + min
-      let secondCard = Math.floor(Math.random() * (max - min + 1)) + min
-      sum += (firstCard + secondCard)
+function renderGame() {
         if (sum < 21) {
             message = "Do you want to draw a new card?"
         } else if (sum === 21) {
@@ -30,7 +30,7 @@ function startGame() {
             message = "You're out of luck, you lose!"
             isAlive = false
         }
-    cardsEl.textContent = "Cards: " + firstCard + " " + secondCard
+    cardsEl.textContent = "Cards: " + cards[0] + " " + cards[1]
     sumEl.textContent = "Sum: " + sum
     messageEl.textContent = message
 }
@@ -38,4 +38,9 @@ function startGame() {
 function newCard() {
   let drawnCard = Math.floor(Math.random() * (max - min + 1)) + min
   sum += drawnCard
+  renderGame()
+}
+
+function startGame() {
+  renderGame()
 }
