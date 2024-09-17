@@ -4,21 +4,18 @@ let sumEl = document.getElementById("sum-el")
 
 let cardsEl = document.getElementById("cards-el")
 
-let min = 2
+let min = 1
 
-let max = 11
+let max = 13
 
 let hasBlackJack = false
-let isAlive = true
+let isAlive = false
 
 let message = ""
 
-let firstCard = randomCard()
-let secondCard = randomCard()
+let sum = 0
 
-let sum = (firstCard + secondCard)
-
-let cards = [firstCard, secondCard]
+let cards = []
 
 function renderGame() {
         if (sum < 21) {
@@ -41,16 +38,35 @@ function renderGame() {
 }
 
 function newCard() {
-  let drawnCard = randomCard()
-  sum += drawnCard
-  cards.push(drawnCard)
-  renderGame()
+  if (isAlive == true && hasBlackJack == false) {
+    let drawnCard = randomCard()
+    sum += drawnCard
+    cards.push(drawnCard)
+    renderGame()
+  }
 }
 
 function startGame() {
+  isAlive = true
+  sum = 0
+  cards = []
+  let firstCard = randomCard()
+  let secondCard = randomCard()
+  cards.push(firstCard)
+  cards.push(secondCard)
+
+  sum = (firstCard + secondCard)
   renderGame()
 }
 
 function randomCard() {
-  return Math.floor(Math.random() * (max - min + 1)) + min
+  let randomNumber = Math.floor(Math.random() * (max - min + 1)) + min
+  if (randomNumber == 1) {
+    return 11
+  } else if (randomNumber > 10) {
+    return 10
+  } else {
+    return randomNumber
+  }
+
 }
