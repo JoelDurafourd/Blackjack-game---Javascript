@@ -4,6 +4,8 @@ let sumEl = document.getElementById("sum-el")
 
 let cardsEl = document.getElementById("cards-el")
 
+let chipsEl = document.getElementById("chips-el")
+
 let min = 1
 
 let max = 13
@@ -17,11 +19,14 @@ let sum = 0
 
 let cards = []
 
+let chips = 250
+
 function renderGame() {
         if (sum < 21) {
             message = "Do you want to draw a new card?"
         } else if (sum === 21) {
             message = "Blackjack!"
+            chips += 200
             hasBlackJack = true
         } else {
             message = "You're out of luck, you lose!"
@@ -35,6 +40,7 @@ function renderGame() {
 
     sumEl.textContent = "Sum: " + sum
     messageEl.textContent = message
+    chipsEl.textContent = "Money: $" + chips
 }
 
 function newCard() {
@@ -48,7 +54,7 @@ function newCard() {
 
 function startGame() {
   isAlive = true
-  sum = 0
+  chips -= 50
   cards = []
   let firstCard = randomCard()
   let secondCard = randomCard()
@@ -69,4 +75,17 @@ function randomCard() {
     return randomNumber
   }
 
+}
+
+function resetGame() {
+hasBlackJack = false
+isAlive = false
+
+message = ""
+
+sum = 0
+
+cards = []
+
+chips = 250
 }
