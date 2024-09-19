@@ -35,7 +35,11 @@ p {
     font-size: large;
     font-family: Arial Black,Arial Bold,Gadget,sans-serif;
     transition: 0.3s ease;
-    cursor: pointer;    
+    cursor: pointer;
+}
+
+#start-btn:hover {
+  background-color: darkgreen;
 }
 
 #newcard-btn {
@@ -49,14 +53,27 @@ p {
     font-size: large;
     font-family: Arial Black,Arial Bold,Gadget,sans-serif;
     transition: 0.3s ease;
-    cursor: pointer;    
+    cursor: pointer;
 }
-
-#start-btn:hover {
-    background-color: darkgreen;
-  }
-
 
 #newcard-btn:hover {
     background-color: darkgreen;
   }
+
+#resetgame-btn {
+    border: none;
+    padding: 25px;
+    background-color: darkred;
+    border-radius: 15px;
+    text-align: center;
+    text-emphasis: bold;
+    color: #016f32;
+    font-size: large;
+    font-family: Arial Black,Arial Bold,Gadget,sans-serif;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+#resetgame-btn:hover {
+  background-color: darkgreen;
+}

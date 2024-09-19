@@ -53,16 +53,23 @@ function newCard() {
 }
 
 function startGame() {
-  isAlive = true
-  chips -= 50
-  cards = []
-  let firstCard = randomCard()
-  let secondCard = randomCard()
-  cards.push(firstCard)
-  cards.push(secondCard)
+  if (chips > 0) {
+    isAlive = true
+    hasBlackJack = false
+    chips -= 50
+    cards = []
+    let firstCard = randomCard()
+    let secondCard = randomCard()
+    cards.push(firstCard)
+    cards.push(secondCard)
 
-  sum = (firstCard + secondCard)
-  renderGame()
+    sum = (firstCard + secondCard)
+    renderGame()
+  } else {
+    message = "You're out of cash, come back another day!"
+    messageEl.textContent = message
+  }
+
 }
 
 function randomCard() {
@@ -78,14 +85,19 @@ function randomCard() {
 }
 
 function resetGame() {
-hasBlackJack = false
-isAlive = false
+  hasBlackJack = false
+  isAlive = false
 
-message = ""
+  message = ""
 
-sum = 0
+  sum = 0
 
-cards = []
+  cards = []
 
-chips = 250
+  chips = 250
+
+  sumEl.textContent = "Sum: "
+  messageEl.textContent = "Want to play a round?"
+  chipsEl.textContent = ""
+  cardsEl.textContent = "Cards: "
 }
