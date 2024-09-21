@@ -101,3 +101,5 @@ function resetGame() {
   chipsEl.textContent = ""
   cardsEl.textContent = "Cards: "
 }
+
+// added comment for testing purposes 
